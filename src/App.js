@@ -8,8 +8,10 @@ class App extends React.Component {
   state = {
     message: ''
   }
+
+  baseUrl = 'https://arcane-plains-29650.herokuapp.com'
   //connect to the server EventStream
-  source = new EventSource('http://localhost:5000/stream')
+  source = new EventSource(`${this.baseUrl}/stream`)
 
   //handle new events
   // onEvent = (event) => {
@@ -44,7 +46,7 @@ class App extends React.Component {
     this.setState({ message: '' })
 
     request
-      .post('http://localhost:5000/message')
+      .post(`${this.baseUrl}/message`)
       .send({ message })
       .then(response => {
         console.log('response test:', response)
