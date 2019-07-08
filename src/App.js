@@ -9,7 +9,8 @@ class App extends React.Component {
     message: ''
   }
 
-  baseUrl = 'https://arcane-plains-29650.herokuapp.com'
+  //baseUrl = 'https://arcane-plains-29650.herokuapp.com'
+  baseUrl = 'http://localhost:5000'
   //connect to the server EventStream
   source = new EventSource(`${this.baseUrl}/stream`)
 
@@ -54,16 +55,16 @@ class App extends React.Component {
       .catch(console.error)
   }
 
-  render() {
-    const messages = this
-      .props
-      .messages
+renderMessages(messages) {
+  return messages
       .map((message, index) => <p
-        key={index}
-      >
-        {message}
+        key={index}>
+        {message.content}
       </p>)
+  }
 
+  render() {
+    console.log("MESSAGES: ", this.props.messages)
     return (
       <main>
         <form onSubmit={this.onSubmit}>
@@ -77,7 +78,10 @@ class App extends React.Component {
           </button>
         </form>
 
-        {messages}
+         {
+           this.props.messages &&
+           this.renderMessages(this.props.messages)
+         }
       </main>
     );
   }
