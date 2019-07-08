@@ -56,7 +56,7 @@ class App extends React.Component {
   }
 
 renderMessages(messages) {
-  console.log("HERE!", messages)
+  //console.log("HERE!", messages)
   return messages
       .map((message, index) => <p
         key={index}>
