@@ -40,7 +40,7 @@ class App extends React.Component {
   onSubmit = (event) => {
     event.preventDefault()
 
-    console.log('submit')
+    //console.log('submit')
 
     const { message } = this.state
 
@@ -50,7 +50,7 @@ class App extends React.Component {
       .post(`${this.baseUrl}/message`)
       .send({ message })
       .then(response => {
-        console.log('response test:', response)
+        console.log('post response:', response)
       })
       .catch(console.error)
   }
@@ -64,7 +64,7 @@ renderMessages(messages) {
   }
 
   render() {
-    console.log("MESSAGES: ", this.props.messages)
+    //console.log("MESSAGES: ", this.props.messages)
     return (
       <main>
         <form onSubmit={this.onSubmit}>

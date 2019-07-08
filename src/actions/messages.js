@@ -6,9 +6,7 @@ export function onEvent (event) {
     console.log("IS THIS AN ARRAY?", data)
     //deserialize the array
     const messages = JSON.parse(data)
-
     //console.log('messages test', messages)
-
     return {
         type: EVENT,
         payload: messages
