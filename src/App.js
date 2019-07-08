@@ -9,7 +9,7 @@ class App extends React.Component {
     message: ''
   }
 
-  baseUrl = 'https://arcane-plains-29650.herokuapp.com/'
+  baseUrl = 'https://arcane-plains-29650.herokuapp.com'
   //baseUrl = 'http://localhost:5000'
   //connect to the server EventStream
   source = new EventSource(`${this.baseUrl}/stream`)
